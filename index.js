@@ -67,6 +67,22 @@ class LinkedList {
     }
     return null;
   }
+
+  pop() {
+    let current = this.head;
+    let previous = null;
+    while (current.nextNode != null) {
+      previous = current;
+      current = current.nextNode;
+    }
+    this.tail = previous;
+    if (previous === null) {
+      this.head = null;
+    } else {
+      previous.nextNode = null;
+    }
+    this.length--;
+  }
 }
 
 class Node {
@@ -85,5 +101,5 @@ list.prepend(99);
 list.prepend(96);
 list.append(444);
 list.prepend(1);
-list.at(0);
+list.pop();
 console.log(list);
