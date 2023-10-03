@@ -37,6 +37,22 @@ class LinkedList {
   size() {
     return this.length;
   }
+
+  getHead() {
+    if (!this.head) {
+      return null;
+    } else {
+      return this.head;
+    }
+  }
+
+  getTail() {
+    if (!this.head) {
+      return null;
+    } else {
+      return this.tail;
+    }
+  }
 }
 
 class Node {
@@ -52,4 +68,8 @@ list.append(100);
 list.append(200);
 list.append(300);
 list.prepend(99);
+list.prepend(96);
+list.append(444);
+list.prepend(1);
+
 console.log(list);
