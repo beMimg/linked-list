@@ -40,7 +40,7 @@ class LinkedList {
 
   getHead() {
     if (!this.head) {
-      return null;
+      return;
     } else {
       return this.head;
     }
@@ -48,10 +48,24 @@ class LinkedList {
 
   getTail() {
     if (!this.head) {
-      return null;
+      return;
     } else {
       return this.tail;
     }
+  }
+
+  at(index) {
+    let current = this.head;
+    let count = 0;
+
+    while (current) {
+      if (count == index) {
+        return current.value;
+      }
+      count++;
+      current = current.nextNode;
+    }
+    return null;
   }
 }
 
@@ -71,5 +85,5 @@ list.prepend(99);
 list.prepend(96);
 list.append(444);
 list.prepend(1);
-
+list.at(0);
 console.log(list);
