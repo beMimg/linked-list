@@ -83,8 +83,19 @@ class LinkedList {
     }
     this.length--;
   }
-}
 
+  contains(value) {
+    let current = this.head;
+
+    while (current) {
+      if (current.value === value) {
+        return true;
+      }
+      current = current.nextNode;
+    }
+    return null;
+  }
+}
 class Node {
   constructor(value, nextNode = null) {
     this.value = value;
