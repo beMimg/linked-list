@@ -111,7 +111,7 @@ class LinkedList {
   toString() {
     let current = this.head;
     let result = '';
-    while (current !== null) {
+    while (current) {
       if (current.nextNode !== null) {
         result += `${current.value} ==> `;
       } else {
@@ -120,6 +120,33 @@ class LinkedList {
       current = current.nextNode;
     }
     return result;
+  }
+
+  insertAt(value, index) {
+    if (index < 0 || index > this.length) {
+      return false;
+    }
+
+    const newNode = new Node(value);
+    let current = this.head;
+    let previous = null;
+    let count = 0;
+
+    if (index === 0) {
+      newNode.nextNode = current;
+      this.head = newNode;
+      this.length++;
+    } else {
+      while (count < index) {
+        previous = current;
+        current = current.nextNode;
+        count++;
+      }
+      previous.nextNode = newNode;
+      newNode.nextNode = current;
+      this.length++;
+    }
+    return true;
   }
 }
 
@@ -132,8 +159,9 @@ class Node {
 
 const list = new LinkedList();
 
-list.append(100);
-list.append(200);
-list.append(300);
-list.prepend(99);
-list.prepend(96);
+list.append(2);
+list.append(3);
+list.append(4);
+list.prepend(1);
+list.prepend(1.5);
+list.insertAt(333333, 2);
