@@ -107,7 +107,22 @@ class LinkedList {
       current = current.nextNode;
     }
   }
+
+  toString() {
+    let current = this.head;
+    let result = '';
+    while (current !== null) {
+      if (current.nextNode !== null) {
+        result += `${current.value} ==> `;
+      } else {
+        result += `${current.value} ==> null`;
+      }
+      current = current.nextNode;
+    }
+    return result;
+  }
 }
+
 class Node {
   constructor(value, nextNode = null) {
     this.value = value;
@@ -122,6 +137,3 @@ list.append(200);
 list.append(300);
 list.prepend(99);
 list.prepend(96);
-list.append(444);
-list.prepend(1);
-console.log(list);
