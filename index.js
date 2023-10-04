@@ -95,6 +95,18 @@ class LinkedList {
     }
     return null;
   }
+
+  find(value) {
+    let current = this.head;
+    let count = 0;
+    while (current) {
+      if (value === current.value) {
+        return count;
+      }
+      count++;
+      current = current.nextNode;
+    }
+  }
 }
 class Node {
   constructor(value, nextNode = null) {
@@ -112,5 +124,4 @@ list.prepend(99);
 list.prepend(96);
 list.append(444);
 list.prepend(1);
-list.pop();
 console.log(list);
