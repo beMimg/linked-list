@@ -71,15 +71,15 @@ class LinkedList {
   pop() {
     let current = this.head;
     let previous = null;
-    while (current.nextNode != null) {
+    while (current.nextNode !== null) {
       previous = current;
       current = current.nextNode;
     }
-    this.tail = previous;
-    if (previous === null) {
+    if (previous == null) {
       this.head = null;
     } else {
       previous.nextNode = null;
+      this.tail = previous;
     }
     this.length--;
   }
