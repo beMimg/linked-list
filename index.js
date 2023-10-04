@@ -148,6 +148,31 @@ class LinkedList {
     }
     return true;
   }
+
+  removeAt(index) {
+    if (index < 0 || index > this.length) {
+      return false;
+    }
+
+    let current = this.head;
+    let previous = null;
+    let count = 0;
+
+    if (index === 0) {
+      current = current.nextNode;
+      this.head = current;
+      this.length--;
+    } else {
+      while (count < index) {
+        previous = current;
+        current = current.nextNode;
+        count++;
+      }
+      previous.nextNode = current.nextNode;
+      this.length--;
+    }
+    return true;
+  }
 }
 
 class Node {
@@ -163,5 +188,5 @@ list.append(2);
 list.append(3);
 list.append(4);
 list.prepend(1);
-list.prepend(1.5);
+list.prepend(0.7);
 list.insertAt(333333, 2);
