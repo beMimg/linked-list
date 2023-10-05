@@ -157,7 +157,6 @@ class LinkedList {
     let current = this.head;
     let previous = null;
     let count = 0;
-
     if (index === 0) {
       current = current.nextNode;
       this.head = current;
@@ -167,7 +166,11 @@ class LinkedList {
         previous = current;
         current = current.nextNode;
         count++;
+        if (current.nextNode === null) {
+          this.tail = previous;
+        }
       }
+
       previous.nextNode = current.nextNode;
       this.length--;
     }
